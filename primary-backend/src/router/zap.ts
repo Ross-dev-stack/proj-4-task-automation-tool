@@ -1,3 +1,4 @@
+
 import { Router } from "express";
 import { authMiddleware } from "../middleware";
 import { ZapCreateSchema } from "../types";
@@ -16,7 +17,7 @@ router.post("/", authMiddleware, async (req, res) => {
             message: "Incorrect inputs"
         });
     }   
-
+        //@ts-ignore
     const zapId = await prismaClient.$transaction(async tx => {
         const zap = await prismaClient.zap.create({
             data: {
